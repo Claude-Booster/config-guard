@@ -38,7 +38,7 @@ So a repo from the internet can run code just because you opened it. **config-gu
 config-guard is a self-contained Claude Code **skill** — Claude Code auto-discovers it, with **no configuration and no build step**. Clone it into your skills directory:
 
 ```bash
-git clone <your-repo-url> ~/.claude/skills/config-guard
+git clone https://github.com/Claude-Booster/config-guard.git ~/.claude/skills/config-guard
 ```
 
 That's the whole install. The engine lives inside the skill at [`scripts/config_guard.py`](scripts/config_guard.py); the next time Claude Code runs, ask it to *"scan this repo"* or *"is this safe to open?"* and the skill activates.
