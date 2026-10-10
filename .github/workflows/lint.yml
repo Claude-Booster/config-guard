@@ -1,0 +1,10 @@
+name: Lint
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  lint:
+    uses: fredman08/ci-workflows/.github/workflows/lint.yml@main
+    with:
+      soft-fail: true
