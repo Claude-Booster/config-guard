@@ -1,0 +1,52 @@
+<svg viewBox="0 0 900 150" width="900" height="150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lifecycle: guard blocks, you review the report, approve unblocks">
+  <defs>
+    <linearGradient id="lbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1a28"/>
+      <stop offset="1" stop-color="#0f2234"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="150" fill="url(#lbg)"/>
+
+  <!-- connector behind the nodes -->
+  <line x1="150" y1="58" x2="750" y2="58" stroke="#2b4157" stroke-width="2"/>
+
+  <!-- traveling dot: amber at the "guard" end, green by the "approve" end -->
+  <circle r="5.5" cy="58" fill="#e6a23c">
+    <animate attributeName="cx" values="150;750;750" keyTimes="0;0.85;1" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#e6a23c;#e6a23c;#56c596;#56c596" keyTimes="0;0.5;0.85;1" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.06;0.9;1" dur="4.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <g font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace">
+    <!-- node 1: guard -->
+    <g>
+      <circle cx="150" cy="58" r="22" fill="#16293a" stroke="#e6a23c" stroke-width="2.4"/>
+      <!-- lock glyph -->
+      <rect x="142" y="56" width="16" height="12" rx="2" fill="#e6a23c"/>
+      <path d="M144 56 v-3 a6 6 0 0 1 12 0 v3" fill="none" stroke="#e6a23c" stroke-width="2"/>
+      <text x="150" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#eaf1f6">guard</text>
+      <text x="150" y="124" text-anchor="middle" font-size="12" fill="#8396a6">block untrusted config</text>
+    </g>
+
+    <!-- node 2: review -->
+    <g>
+      <circle cx="450" cy="58" r="22" fill="#16293a" stroke="#6f8496" stroke-width="2.4"/>
+      <!-- magnifier glyph -->
+      <circle cx="447" cy="55" r="6.5" fill="none" stroke="#cdd9e3" stroke-width="2.2"/>
+      <line x1="452" y1="60" x2="458" y2="66" stroke="#cdd9e3" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="450" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#eaf1f6">review</text>
+      <text x="450" y="124" text-anchor="middle" font-size="12" fill="#8396a6">read the plain-English report</text>
+    </g>
+
+    <!-- node 3: approve -->
+    <g>
+      <circle cx="750" cy="58" r="22" fill="#16293a" stroke="#56c596" stroke-width="2.4">
+        <animate attributeName="stroke-width" values="2.4;2.4;4;2.4" keyTimes="0;0.82;0.9;1" dur="4.2s" repeatCount="indefinite"/>
+      </circle>
+      <!-- check glyph -->
+      <path d="M741 58 l6 6 l12 -14" fill="none" stroke="#7ad6ab" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="750" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#eaf1f6">approve</text>
+      <text x="750" y="124" text-anchor="middle" font-size="12" fill="#8396a6">unblock what you trust</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,118 @@
+<svg viewBox="0 0 900 240" width="900" height="240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="config-guard — untrusted repo config does not run until you approve it">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1a28"/>
+      <stop offset="1" stop-color="#102a40"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.045"/>
+    </pattern>
+    <linearGradient id="amberglow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e6a23c" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#e6a23c" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#e6a23c" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="sceneClip"><rect x="470" y="40" width="400" height="160"/></clipPath>
+  </defs>
+
+  <!-- ground: layered gradient + dot texture (not flat) -->
+  <rect width="900" height="240" fill="url(#bg)"/>
+  <rect width="900" height="240" fill="url(#dots)"/>
+
+  <!-- faint quarantine-hazard stripes behind the gate, for atmosphere -->
+  <g clip-path="url(#sceneClip)" opacity="0.06">
+    <g fill="#e6a23c">
+      <rect x="560" y="-40" width="18" height="320" transform="skewX(-24)"/>
+      <rect x="610" y="-40" width="18" height="320" transform="skewX(-24)"/>
+      <rect x="660" y="-40" width="18" height="320" transform="skewX(-24)"/>
+      <rect x="710" y="-40" width="18" height="320" transform="skewX(-24)"/>
+      <rect x="760" y="-40" width="18" height="320" transform="skewX(-24)"/>
+    </g>
+  </g>
+
+  <!-- ===================== LEFT: identity ===================== -->
+  <!-- shield glyph with an inner check -->
+  <g transform="translate(44,52)">
+    <path d="M20 2 L38 9 V23 C38 34 30 41 20 45 C10 41 2 34 2 23 V9 Z"
+          fill="#e6a23c" fill-opacity="0.10" stroke="#e6a23c" stroke-width="2.2"/>
+    <path d="M11 23 L18 30 L30 15" fill="none" stroke="#eaf1f6" stroke-width="2.6"
+          stroke-linecap="round" stroke-linejoin="round" opacity="0.92"/>
+    <animateTransform attributeName="transform" type="translate"
+      values="44,52; 44,49.5; 44,52" dur="4s" repeatCount="indefinite"/>
+  </g>
+
+  <text x="100" y="88" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace"
+        font-size="40" font-weight="700" fill="#eaf1f6" letter-spacing="-0.5">config-guard</text>
+  <rect x="101" y="99" width="296" height="3" rx="1.5" fill="#e6a23c"/>
+
+  <text x="101" y="130" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace"
+        font-size="15.5" fill="#9fb2c2">untrusted repo config doesn't run until you approve it</text>
+  <text x="101" y="158" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace"
+        font-size="12.5" fill="#6f8496">guards  .mcp.json   .claude/   hooks   .claude-plugin/</text>
+
+  <!-- ===================== RIGHT: the gate ===================== -->
+  <g clip-path="url(#sceneClip)">
+    <!-- the gate bar; dips to "open" while a chip is approved -->
+    <g>
+      <rect x="700" y="66" width="9" height="108" rx="4.5" fill="#46617b"/>
+      <rect x="700" y="66" width="9" height="14" rx="4.5" fill="#e6a23c"/>
+      <animate attributeName="opacity"
+        keyTimes="0;0.60;0.64;0.78;0.82;1" values="1;1;0.28;0.28;1;1"
+        dur="8s" repeatCount="indefinite"/>
+    </g>
+    <!-- floor line under the gate -->
+    <rect x="470" y="150" width="400" height="1.5" fill="#ffffff" opacity="0.07"/>
+
+    <!-- the config chip: approaches, is held (amber), then approved (green) and passes through -->
+    <g>
+      <rect x="560" y="106" width="130" height="40" rx="9"
+            fill="#16293a" stroke="#2f4a60" stroke-width="2.2">
+        <animate attributeName="stroke"
+          keyTimes="0;0.18;0.20;0.60;0.64;0.78;1"
+          values="#2f4a60;#2f4a60;#e6a23c;#e6a23c;#56c596;#56c596;#2f4a60"
+          dur="8s" repeatCount="indefinite"/>
+      </rect>
+      <text x="625" y="131" text-anchor="middle"
+            font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace"
+            font-size="14" fill="#cdd9e3">.mcp.json</text>
+      <animateTransform attributeName="transform" type="translate"
+        keyTimes="0;0.18;0.60;0.78;0.80;1"
+        values="-205,0; 0,0; 0,0; 185,0; 185,0; -205,0"
+        dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+        keyTimes="0;0.05;0.78;0.805;1" values="0;1;1;0;0"
+        dur="8s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- scan sweep: visible only while the chip is held at the gate -->
+    <g>
+      <rect x="560" y="104" width="3" height="44" fill="url(#amberglow)"/>
+      <animateTransform attributeName="transform" type="translate"
+        keyTimes="0;0.30;0.56;1" values="0,0;0,0;128,0;128,0"
+        dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+        keyTimes="0;0.30;0.31;0.55;0.56;1" values="0;0;1;1;0;0"
+        dur="8s" repeatCount="indefinite"/>
+    </g>
+  </g>
+
+  <!-- status stamps under the gate -->
+  <g font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace" font-size="13" font-weight="700">
+    <g opacity="0">
+      <rect x="576" y="168" width="98" height="26" rx="5" fill="none"
+            stroke="#e6a23c" stroke-width="1.6" stroke-dasharray="4 3"/>
+      <text x="625" y="185.5" text-anchor="middle" fill="#e6a23c">blocked</text>
+      <animate attributeName="opacity"
+        keyTimes="0;0.18;0.20;0.60;0.63;1" values="0;0;1;1;0;0"
+        dur="8s" repeatCount="indefinite"/>
+    </g>
+    <g opacity="0" transform="translate(55,0)">
+      <rect x="576" y="168" width="104" height="26" rx="5" fill="#56c596" fill-opacity="0.12"
+            stroke="#56c596" stroke-width="1.6"/>
+      <text x="628" y="185.5" text-anchor="middle" fill="#7ad6ab">approved</text>
+      <animate attributeName="opacity"
+        keyTimes="0;0.60;0.64;0.78;0.80;1" values="0;0;1;1;0;0"
+        dur="8s" repeatCount="indefinite"/>
+    </g>
+  </g>
+</svg>
